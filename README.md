@@ -10,8 +10,8 @@ Cursor Editor v0.18.8
 
 ## Getting Started
 
+開発サーバー起動
 ```bash
-# 開発サーバー起動
 npm run dev
 # or
 yarn dev
@@ -20,8 +20,8 @@ pnpm dev
 # or
 bun dev
 ```
+StoryBook
 ```bash
-# StoryBook
 npm run sb
 # or
 yarn sb
@@ -31,5 +31,9 @@ pnpm sb
 bun sb
 ```
 
-> npmとかyarnとか統一するためniの導入を検討中...  
+> npmとかyarnとか統一したい...  
+> インストール済みのパッケージマネージャーから適切なものを自動で選択してくれるツールがある  
 > https://github.com/antfu/ni
+
+## [システム構成](docs/systemConfiguration.md)
+## [メモ書き](docs/memo.md)
