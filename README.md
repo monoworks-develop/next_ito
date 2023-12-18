@@ -11,6 +11,7 @@ Cursor Editor v0.18.8
 ## Getting Started
 
 ```bash
+# 開発サーバー起動
 npm run dev
 # or
 yarn dev
@@ -19,3 +20,16 @@ pnpm dev
 # or
 bun dev
 ```
+```bash
+# StoryBook
+npm run sb
+# or
+yarn sb
+# or
+pnpm sb
+# or
+bun sb
+```
+
+> npmとかyarnとか統一するためniの導入を検討中...  
+> https://github.com/antfu/ni
