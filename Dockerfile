@@ -1,14 +1,22 @@
 # ベースとなるNode.jsのイメージを指定
-FROM node:lts
+FROM node:20-alpine
 
-# アプリケーションのソースコードをコンテナ内にコピー
-# WORKDIR /usr/src/app
-# COPY package*.json ./
-# RUN npm install
-# COPY . .
+# アプリケーションディレクトリを設定
+WORKDIR /usr/src/app
 
-# アプリケーションがリッスンするポートを指定
-EXPOSE 8080
+# アプリケーションの依存関係をインストール
+# package.json と package-lock.json をコピー
+COPY package*.json ./
+RUN npm install
+
+# ソースをコピー
+COPY . .
+
+# アプリケーションのビルド
+RUN npm run build
+
+# 公開ポートの指定
+EXPOSE 3000
 
 # アプリケーションの起動コマンド
-# CMD ["node", "app.js"]
+CMD ["npm", "run", "start"]
