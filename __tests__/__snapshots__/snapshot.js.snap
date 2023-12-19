@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders homepage unchanged 1`] = `
+<div>
+  <main>
+    <div>
+      <header>
+        ヘッダーです。
+      </header>
+      <a
+        class="text-red-500 hover:text-blue-500"
+        href="ssg"
+        title="aa"
+      >
+        SSG!!!
+      </a>
+      <button
+        class="text-red-500 hover:text-blue-500"
+      >
+        this is Button
+      </button>
+    </div>
+  </main>
+</div>
+`;
