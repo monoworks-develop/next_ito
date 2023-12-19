@@ -14,9 +14,3 @@ COPY . .
 
 # アプリケーションのビルド
 RUN npm run build
-
-# 公開ポートの指定
-EXPOSE 3000
-
-# アプリケーションの起動コマンド
-CMD ["npm", "run", "start"]
