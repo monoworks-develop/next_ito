@@ -9,8 +9,12 @@ export default function Home() {
     <main>
       <div> 
         <Header></Header>
-        <Link href='ssg' className={['text-red-500', 'hover:text-blue-500']} children='SSG!!!' title='aa' />
-        <Button className={['text-red-500', 'hover:text-blue-500']} children='this is Button' onClick={() => {console.log('Button!!!')}} title='aa' />
+        <Link href='ssg' className={['text-red-500', 'hover:text-blue-500']} title='aa' >
+          SSG!!!
+        </Link>
+        <Button className={['text-red-500', 'hover:text-blue-500']} onClick={() => {console.log('Button!!!')}} title='aa'>
+          this is Button
+        </Button>
       </div>
     </main>
   )

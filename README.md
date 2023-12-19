@@ -35,5 +35,5 @@ bun sb
 > インストール済みのパッケージマネージャーから適切なものを自動で選択してくれるツールがある  
 > https://github.com/antfu/ni
 
-## [システム構成](docs/systemConfiguration.md)
-## [メモ書き](docs/memo.md)
+* ### [システム構成](docs/systemConfiguration.md)
+* ### [メモ書き](docs/memo.md)
