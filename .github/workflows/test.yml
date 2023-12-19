@@ -1,13 +1,13 @@
 name: hello world
 
-on: []
+on: [push]
 
 jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
       - name:
-        run: echo "hello world"
+        run: ls -la
       - name:
         run: |
           node -v
