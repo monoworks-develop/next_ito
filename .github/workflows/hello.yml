@@ -1,6 +1,6 @@
 name: hello world
 
-on: [push]
+# on: [push]
 
 jobs:
   hello:
