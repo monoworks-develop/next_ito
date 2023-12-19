@@ -6,9 +6,9 @@ jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
-      - name:
+      - name: 事前確認
         run: ls -la
-      - name:
-        run: |
-          node -v
-          npm -v
+      - name: 事前確認
+        uses: actions/checkout@v2
+      - name: 事後確認
+        run: ls -la
