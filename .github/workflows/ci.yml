@@ -1,0 +1,14 @@
+name: hello world
+
+on: [push]
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name:
+        run: echo "hello world"
+      - name:
+        run: |
+          node -v
+          npm -v
