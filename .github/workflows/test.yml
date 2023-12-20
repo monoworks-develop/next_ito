@@ -1,6 +1,6 @@
 name: Jest-CI
 
-on: [push]
+on: []
 
 jobs:
   hello:
