@@ -1,0 +1,24 @@
+name: hello world
+
+on: [push]
+
+jobs:
+  hello:
+    name: hello world
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+      - name: Install packages
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Test
+        run: npm run test
