@@ -4,11 +4,18 @@ on: [push]
 
 jobs:
   hello:
+    name: hello world
     runs-on: ubuntu-latest
     steps:
-      - name: 事前確認
-        run: ls -la
-      - name: 事前確認
+      - name: Checkout
         uses: actions/checkout@v2
-      - name: 事後確認
-        run: ls -la
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+      - name: Install packages
+        uses: npm install
+      - name: Build
+        run: npm run build
+      - name: Test
+        run: npm run test
