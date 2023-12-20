@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: "20"
       - name: Install packages
-        uses: npm install
+        run: npm install
       - name: Build
         run: npm run build
       - name: Test
