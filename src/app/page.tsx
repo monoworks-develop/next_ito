@@ -15,6 +15,9 @@ export default function Home() {
         <Button className={['text-red-500', 'hover:text-blue-500']} onClick={() => {console.log('Button!!!')}} title='aa'>
           this is Button
         </Button>
+        <Button className={['text-red-500', 'hover:text-blue-500']} onClick={() => {console.log('Button!!!')}} title='aa'>
+          this is Second Button
+        </Button>
       </div>
     </main>
   )

@@ -4,7 +4,7 @@ import Home from '../app/page'
 import {Button, Link} from '@/components/Elements'
 
 describe('Home', () => {
-  test('ヘッダー検証', () => {
+  test('Button', () => {
     render(<Button/>)
 
     const button = screen.getByRole('button')
