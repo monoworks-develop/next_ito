@@ -10,15 +10,13 @@ jobs:
       run:
         working-directory: ./
     steps:
-      - name: Checkout
+      - name: ソースをチェックアウト
         uses: actions/checkout@v3
-      - name: Set up Node
+      - name: Nodeのセットアップ
         uses: actions/setup-node@v3
         with:
           node-version: "20"
-      - name: Install packages
+      - name: パッケージのインストール
         run: npm install
-      # - name: Build
-      #   run: npm run build
-      - name: Test
+      - name: テスト実行
         run: npm run test
