@@ -21,7 +21,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: ls
-        run: :|
+        run: |
           ls -la
           ls pack
       - name: Deploy
