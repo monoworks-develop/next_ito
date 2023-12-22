@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '20.x'
       # - name: Install dependencies
@@ -21,7 +21,7 @@ jobs:
       # - name: Build
       #   run: npm run build
       - name: Deploy
-        uses: azure/webapps-deploy@v2
+        uses: azure/webapps-deploy@v3
         with:
           app-name: 'VisionTestWeb'
           package: ./next.zip
