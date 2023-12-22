@@ -24,6 +24,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'VisionTestWeb'
-          slot-name: 'production'
           package: ./next.zip
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_00942AAD0A8440D0A833E210949F2AD3 }}
