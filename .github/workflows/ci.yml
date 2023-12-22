@@ -1,10 +1,10 @@
-name: Jest-CI
+name: CI-Jest
 
 on: [push]
 
 jobs:
-  hello:
-    name: Jest-CI
+  CI-Jest:
+    name: CI-Jest
     runs-on: ubuntu-latest
     defaults:
       run:

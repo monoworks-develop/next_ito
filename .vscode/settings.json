@@ -2,5 +2,7 @@
   "appService.zipIgnorePattern": [
     "node_modules{,/**}",
     ".vscode{,/**}"
-  ]
+  ],
+  "appService.defaultWebAppToDeploy": "/subscriptions/dc3edebd-5216-4877-ac8e-c874c36be146/resourceGroups/ito_work/providers/Microsoft.Web/sites/VisionTestWeb",
+  "appService.deploySubpath": "."
 }
