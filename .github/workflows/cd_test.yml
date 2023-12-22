@@ -21,9 +21,7 @@ jobs:
       # - name: Build
       #   run: npm run build
       - name: ls
-        run: |
-          ls -la
-          ls pack
+        run: ls pack
       - name: Deploy
         uses: azure/webapps-deploy@v2
         with:
