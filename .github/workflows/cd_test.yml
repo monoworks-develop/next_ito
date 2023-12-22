@@ -27,5 +27,5 @@ jobs:
         with:
           app-name: 'VisionTestWeb'
           slot-name: 'production'
-          package: ./pack
+          package: ./next.zip
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_07086D2D6CE54D0F8AC67DFCFB849E77 }}
