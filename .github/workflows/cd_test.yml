@@ -20,12 +20,10 @@ jobs:
       #   run: npm install
       # - name: Build
       #   run: npm run build
-      - name: ls
-        run: ls pack
       - name: Deploy
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'VisionTestWeb'
           slot-name: 'production'
           package: ./next.zip
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_07086D2D6CE54D0F8AC67DFCFB849E77 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_00942AAD0A8440D0A833E210949F2AD3 }}
