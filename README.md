@@ -6,7 +6,7 @@
 ## 開発環境
 
 Node v20.9.0  
-Cursor Editor v0.18.8
+VSCode v0.18.8
 
 ## Getting Started
 
@@ -31,9 +31,4 @@ pnpm sb
 bun sb
 ```
 
-> npmとかyarnとか統一したい...  
-> インストール済みのパッケージマネージャーから適切なものを自動で選択してくれるツールがある  
-> https://github.com/antfu/ni
-
-* ### [システム構成](docs/systemConfiguration.md)
-* ### [メモ書き](docs/memo.md)
+## [環境構築](docs/setup.md)
