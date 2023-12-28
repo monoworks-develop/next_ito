@@ -20,6 +20,8 @@
 基本的に `VSCode` の ツールバー → Terminal → New Terminal でターミナルを開いてそこでコマンドを実行し、  
 環境構築を行っています。
 
+また Dev Containersは各位でDockerのセットアップ等が必要になるため、今回は使用していません。
+
 ## [Next.js](https://nextjs.org/) プロジェクトの作成
 
 ### CLIツールの実行
