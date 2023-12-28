@@ -26,11 +26,11 @@
 
 ### CLIツールの実行
 
-`npx create-next-app`
+`npx create-next-app myapp`
 
-適当な名前(`myapp`等)をつけ、選択肢はすべてそのままEnter  
-`myapp`フォルダ内にあるファイルを全てrootに出す  
-`myapp`フォルダは消してOK
+選択肢はすべてそのままEnter  
+`myapp` フォルダ内にあるファイルを全てrootに出す  
+`myapp` フォルダは消してOK
 
 `Next.js 13` から `App Router` が採用され、`/src/app/` 内のディレクトリ構造がそのままルーティングされる。
 
@@ -48,6 +48,8 @@
 
 ### コンフィグファイルの作成
 
+rootディレクトリ配下に以下のファイルを作成
+
 ``` js:jest.config.js
 const nextJest = require('next/jest')
 
@@ -64,6 +66,8 @@ module.exports = createJestConfig(customJestConfig)
 ```
 
 ### testスクリプトの追加  
+
+rootディレクトリにある `package.json` の `"scripts"` に以下を追加
 
 ``` json:package.json
 "test": "jest"
@@ -85,12 +89,23 @@ describe('Hello World', () => {
   test('Hello', () => {
     expect("Hello" + " World" + " !").toBe("Hello World !")
   })
+
+  test('PASS Case', () => {
+    expect(1).toBe(1)
+  })
+
+  test('ERROR Case', () => {
+    expect(100).toBe(1)
+  })
 })
 ```
 
 #### テストの実行
 
-`npm run test`
+`npm run test` で実行
+
+テスト結果がターミナルに表示される。  
+`Tests: 1 failed, 2 passed, 3 total` になっている筈
 
 ## [ESLint](https://eslint.org/)
 
@@ -106,7 +121,7 @@ VSCodeに`ESLint`のプラグインを入れれば保存時に自動で実行等
 
 ## [Prettier](https://prettier.io/)
 
-今後追記予定
+調査中...
 
 ## [Tailwind CSS](https://tailwindcss.com/)
 
@@ -114,6 +129,8 @@ create-next-appを使ってプロジェクトを作成した場合は、イン�
 [チートシート](https://tailwindcomponents.com/cheatsheet/)
 
 ## [StoryBook](https://storybook.js.org/)
+
+コーディングしたコンポーネントをブラウザ上で閲覧出来るツール
 
 ### CLIツールでセットアップ
 
@@ -131,9 +148,9 @@ create-next-appを使ってプロジェクトを作成した場合は、イン�
 
 次回から `npm run sb` で起動できる
 
-### Tailwind CSSをimport
+### Tailwind CSS をimport
 
-初期状態だとTailwindCSSが読み込まれておらず、
+初期状態だとTailwind CSSが読み込まれておらず、
 スタイルが適用されないためimportを行う。
 
 ``` ts:/.storybook/preview.ts
@@ -143,6 +160,8 @@ import "../src/app/globals.css";
 ### 最初のStoryを作成
 
 #### Storyの元となるコンポーネントを作成 (****.tsx)
+
+`/src/components/` フォルダを作成し、配下に以下のコンポーネントを作成
 
 ``` tsx:SimpleButton.tsx
 type SimpleButtonProps = {
@@ -161,6 +180,9 @@ export default SimpleButton
 ```
 
 #### 作成したコンポーネントを元にStoryを作成 (****.stories.tsx)
+
+`****.stories.tsx` というファイル名にするとStoryBook用のコンポーネントファイルとして認識される。  
+対象のコンポーネントと同じ場所に `stories.tsx` ファイルを置いておくとimportが楽
 
 ``` tsx:SimpleButton.stories.tsx
 import { Meta, StoryObj } from "@storybook/react"
@@ -207,12 +229,65 @@ Github ActionsでのCI/CDの設定方法を解説します。
 
 これを用いてプッシュがされたタイミングで自動でビルド・テスト・コードの解析等を行いソースコードの品質を高めることを `CI (継続的インティグレーション)`
 
-任意のブランチのソースコードがプッシュ及びプルリクにより更新されたら、自動で指定した環境にデプロイすることを `CD (継続的デリバリー)` と呼びます。　　
+任意のブランチのソースコードがプッシュ及びプルリクにより更新されたら、自動で指定した環境にデプロイすることを `CD (継続的デリバリー)` と呼びます。
+
+### Github にリポジトリ作成とプッシュ
+
+[Github](https://github.com/dashboard)にリポジトリを作成  
+ライセンスは迷ったらMITライセンスで大丈夫です。
+
+また `create-next-app` でプロジェクトを立ち上げた場合は、`git init` は不要です。
+
+#### ローカルリポジトリとリモートリポジトリを接続
+
+`git remote add origin 作成したリポジトリのリンク.git`
+
+#### 最初のコミット
+
+`git add .`  
+`git commit -m "コミットメッセージ"`  
+`git push -u origin main`
 
 ### CI の設定方法
 
-今後追記予定
+`npm run test` でテストが実行できることを確認してください。
+このコマンドを Github Actions からキックすることでテストを自動化できます。
+
+#### ジョブ定義ファイルの作成
+
+`/.github/workflows/` フォルダを作成し、配下に以下のファイルを作成
+
+``` yml:ci_test_frontend.yml
+name: CI-Test-Frontend
+
+on: [push]
+
+jobs:
+  CI-Jest:
+    name: CI-Jest
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
+    steps:
+      - name: ソースをチェックアウト
+        uses: actions/checkout@v4
+      - name: Nodeのセットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: パッケージのインストール
+        run: npm install
+      - name: テスト実行
+        run: npm run test
+```
+
+#### 実行確認
+
+作成した `yml` ファイルを含めてプッシュし、
+[Github](https://github.com/)から対象のリポジトリを開く。  
+ツールバーの `Actions` でテストが実行されていることを確認する。
 
 ### CD の設定方法
 
-今後追記予定
+調査中...
