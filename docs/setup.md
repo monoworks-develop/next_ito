@@ -288,6 +288,11 @@ jobs:
 [Github](https://github.com/)から対象のリポジトリを開く。  
 ツールバーの `Actions` でテストが実行されていることを確認する。
 
+> テストでエラーが起きたりするとメールが発信されてしまいますので注意
+
+参考までに私のリポジトリのActionsを貼っておきます。  
+[Actions](https://github.com/monoworks-develop/next_ito/actions)
+
 ### CD の設定方法
 
 調査中...
