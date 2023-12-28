@@ -1,5 +1,7 @@
 # Next環境構築
 
+Githubのプレビューでもある程度見れますが、`VSCode` に `Markdown Named CodeBlocks` を入れてプレビューしていただいたほうが見やすくなります。
+
 ## 作業環境
 
 `Node.js` v20.9.0
